@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>View in Your Space — Circa Warehouse</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #111;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+    model-viewer {
+      width: 100%;
+      height: 100vh;
+      background-color: #111;
+      --poster-color: #111;
+    }
+    .ar-button {
+      background-color: #c9a227;
+      color: #111;
+      border: none;
+      border-radius: 28px;
+      padding: 12px 22px;
+      font-size: 15px;
+      font-weight: 600;
+      position: absolute;
+      bottom: 28px;
+      right: 28px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+    .caption {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      color: #eee;
+      font-size: 14px;
+      background: rgba(0,0,0,0.4);
+      padding: 6px 12px;
+      border-radius: 14px;
+    }
+    /* Fallback content shown only if the browser doesn't support model-viewer at all */
+    .no-support {
+      color: #eee;
+      text-align: center;
+      padding: 60px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <model-viewer
+    id="viewer"
+    src="circa_hitem.glb"
+    ios-src="circa_hitem.usdz"
+    poster="circa_hitem_poster.png"
+    alt="Gilded carved wood finial, 3D model"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    ar-scale="fixed"
+    camera-controls
+    auto-rotate
+    shadow-intensity="1"
+    exposure="1"
+    environment-image="neutral">
+
+    <div slot="poster" class="caption">Tap to load 3D model</div>
+    <button slot="ar-button" class="ar-button">View in your space</button>
+
+    <div class="no-support">
+      Your browser doesn't support 3D viewing.<br>
+      Please open this page in Safari (iOS) or Chrome (Android).
+    </div>
+
+  </model-viewer>
+
+</body>
+</html>
